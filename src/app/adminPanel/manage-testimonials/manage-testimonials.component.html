@@ -1,0 +1,53 @@
+<app-top-nav></app-top-nav>
+<div class="ts-main-content">
+	<app-side-nav></app-side-nav>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="page-title">Manage Testimonials</h2>
+					<div class="panel panel-default">
+						<div class="panel-heading">User Testimonials</div>
+						<div class="panel-body">
+							<div id="zctb_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+								<div class="row">
+									<div class="col-sm-12">
+										<table class="display table table-striped table-bordered table-hover dataTable" cellspacing="0"
+											width="100%" role="grid" aria-describedby="zctb_info" style="width: 100%;">
+											<thead>
+												<tr role="row">
+													<th class="sorting_asc" tabindex="0" aria-controls="zctb" rowspan="1" colspan="1"
+														aria-sort="ascending" aria-label="#: activate to sort column descending"
+														style="width: 30px;">#</th>
+													<th class="sorting" tabindex="0" aria-controls="zctb" rowspan="1" colspan="1"
+														aria-label="Name: activate to sort column ascending" style="width: 101px;">Name</th>
+													<th class="sorting" tabindex="0" aria-controls="zctb" rowspan="1" colspan="1"
+														aria-label="Email: activate to sort column ascending" style="width: 241px;">Email</th>
+													<th class="sorting" tabindex="0" aria-controls="zctb" rowspan="1" colspan="1"
+														aria-label="Posting date: activate to sort column ascending" style="width: 174px;">Posting
+														date</th>
+													<th class="sorting" tabindex="0" aria-controls="zctb" rowspan="1" colspan="1"
+														aria-label="Action: activate to sort column ascending" style="width: 78px;">Action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr *ngFor="let tst of allTestimonials;let i = index;" role="row" class="odd">
+													<td>{{i+1}}</td>
+													<td>{{tst.FullName}}</td>
+													<td>{{tst.UserEmail}}</td>
+													<td>{{tst.PostingDate}}</td>
+													<td *ngIf="tst.status == 0"><a (click)="editTestiStatus('active',tst.id)">Active</a></td>
+													<td *ngIf="tst.status == 1"><a (click)="editTestiStatus('inactive',tst.id)">Inactive</a></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

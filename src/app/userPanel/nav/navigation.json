@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "title": "HOME",
+        "description": "Incidunt et magni est ut.",
+        "redirect":"",
+        "isParam": false
+    },
+    {
+        "id": 2,
+        "title": "ABOUT US",
+        "description": "Sint libero mollitia.",
+        "redirect":"aboutus",
+        "isParam": true
+    },
+    {
+        "id": 3,
+        "title": "CAR LISTING",
+        "description": "In consequuntur cupiditate et unde minus.",
+        "redirect":"/carlisting",
+        "isParam": false 
+    },
+    {
+        "id": 4,
+        "title": "FAQs",
+        "description": "Contact us car listing page.",
+        "redirect":"faqs",
+        "isParam": true
+    },
+    {
+        "id": 5,
+        "title": "CONTACT US",
+        "description": "Contact us car listing page.",
+        "redirect":"/contactus",
+        "isParam": false 
+    }
+]

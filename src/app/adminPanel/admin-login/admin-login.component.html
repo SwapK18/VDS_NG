@@ -1,0 +1,37 @@
+<div class="login-page bk-img" style="background-image: url('http://localhost/VehicalDisplaySystem/assets/images/adminlogin.jpg');">
+    <div class="form-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h1 class="text-center text-bold text-light mt-4x">Sign in</h1>
+                    <div class="well row pt-2x pb-3x bk-light">
+                        <div class="col-md-8 col-md-offset-2">
+                            <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
+                                <div class="form-group">
+                                  <input formControlName="username" type="email" class="form-control" name="email"
+                                    placeholder="User Name *">
+                                  <div *ngIf="isSubmitted && formControls.username.errors" class="alert-danger">
+                                    <div *ngIf="formControls.username.errors.required">Username is required</div>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <input type="password" class="form-control" placeholder="Password *" formControlName="password">
+                                  <div *ngIf="isSubmitted && formControls.password.errors" class="alert-danger">
+                                    <div *ngIf="formControls.password.errors.required">Password is required</div>
+                                  </div>
+                                </div>
+                                <div class="form-group checkbox">
+                                  <input type="checkbox" id="remember">
+                
+                                </div>
+                                <div class="form-group">
+                                  <input type="submit" name="login" value="Login" class="btn btn-block">
+                                </div>
+                              </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

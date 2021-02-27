@@ -1,0 +1,261 @@
+<app-top-nav></app-top-nav>
+<div class="ts-main-content">
+	<app-side-nav></app-side-nav>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="page-title">Post A Vehicle</h2>
+					<div class="row">
+						<div class="col-md-12">
+							<form [formGroup]="postVehForm" (ngSubmit)="submit()">
+								<div class="panel panel-default">
+									<div class="panel-heading">Basic Info</div>
+									<div class="panel-body">
+										<div class="form-group">
+											<div class="col-xs-6">
+												<label for="">Vehicle Title *</label>
+												<input type="text" class="form-control" placeholder="Vehicle Title*"
+													formControlName="vehicleTitle" />
+												<div *ngIf="isSubmitted && f.vehicleTitle.errors" class="alert-danger">
+													<div *ngIf="f.vehicleTitle.errors.required">Vehicle Title is required</div>
+												</div>
+											</div>
+											<div class="col-xs-6">
+												<label for="">Select Brand *</label>
+												<select type="text" class="form-control" placeholder="Select Brand*"
+													formControlName="brandName">
+													<option disabled="true" selected="true">
+														-- Select Brand --
+													</option>
+													<option *ngFor="let brnd of allBrnds" [value]="brnd.id">
+														{{ brnd.BrandName }}
+													</option>
+												</select>
+												<div *ngIf="isSubmitted && f.brandName.errors" class="alert-danger">
+													<div *ngIf="f.brandName.errors.required">Brand Name is required</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<div class="col-xs-6">
+												<label for="">Price Per Day(in USD) *</label>
+												<input type="text" class="form-control" placeholder="Price Per Day(in USD)*"
+													formControlName="pricePerDay" />
+												<div *ngIf="isSubmitted && f.pricePerDay.errors" class="alert-danger">
+													<div *ngIf="f.pricePerDay.errors.required">Price Per Day is required</div>
+												</div>
+											</div>
+											<div class="col-xs-6">
+												<label for="">Model Year *</label>
+												<input type="text" class="form-control" placeholder="Model Year*" formControlName="modelYear" />
+												<div *ngIf="isSubmitted && f.modelYear.errors" class="alert-danger">
+													<div *ngIf="f.modelYear.errors.required">Model Year is required</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-xs-6">
+												<label for="">Seating Capacity *</label>
+												<input type="text" class="form-control" placeholder="Seating Capacity*"
+													formControlName="seatingCapacity" />
+												<div *ngIf="isSubmitted && f.seatingCapacity.errors" class="alert-danger">
+													<div *ngIf="f.seatingCapacity.errors.required">Seating Capacity is required</div>
+												</div>
+											</div>
+											<div class="col-xs-6">
+												<label for="">Select Fuel Type *</label>
+												<select type="text" class="form-control" formControlName="fuealType">
+													<option disabled="true" selected>
+														-- Select Fuel Type --
+													</option>
+													<option *ngFor="let ftyp of allVehFuealTyp" [value]="ftyp.id">
+														{{ ftyp.typeName }}
+													</option>
+												</select>
+												<div *ngIf="isSubmitted && f.fuealType.errors" class="alert-danger">
+													<div *ngIf="f.fuealType.errors.required">Fueal Type is required</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-xs-12">
+												<label for="">Vehicle Overview *</label>
+												<textarea rows="5" type="text" class="form-control" placeholder="Vehicle Overview *"
+													formControlName="vehicleOverview"></textarea>
+												<div *ngIf="isSubmitted && f.vehicleOverview.errors" class="alert-danger">
+													<div *ngIf="f.vehicleOverview.errors.required">Vehicle Overview is required</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="panel panel-default">
+									<div class="panel-heading">Upload Images</div>
+									<div class="panel-body">
+										<div class="form-group">
+											<div class="col-xs-6">
+												<label for="">Image 1 *</label>
+												<input id="file" type="file" class="form-control" formControlName="imageOne"
+													(change)="onFileChange(1,$event)" />
+												<div *ngIf="isSubmitted && f.imageOne.errors" class="alert-danger">
+													<div *ngIf="f.imageOne.errors.required">This image is required</div>
+												</div>
+											</div>
+											<div class="col-xs-6">
+												<label for="">Image 2 *</label>
+												<input type="file" class="form-control" formControlName="imageTwo"
+													(change)="onFileChange(2,$event)" />
+												<div *ngIf="isSubmitted && f.imageTwo.errors" class="alert-danger">
+													<div *ngIf="f.imageTwo.errors.required">This image is required</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="col-xs-6">
+													<label for="">Image 3 *</label>
+													<input type="file" class="form-control" formControlName="imageThree"
+														(change)="onFileChange(3,$event)" />
+													<div *ngIf="isSubmitted && f.imageThree.errors" class="alert-danger">
+														<div *ngIf="f.imageThree.errors.required">This image is required</div>
+													</div>
+												</div>
+												<div class="col-xs-6">
+													<label for="">Image 4 *</label>
+													<input type="file" class="form-control" formControlName="imageFour"
+														(change)="onFileChange(4,$event)" />
+													<div *ngIf="isSubmitted && f.imageFour.errors" class="alert-danger">
+														<div *ngIf="f.imageFour.errors.required">This image is required</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-6">
+												<label for="">Image 5 *</label>
+												<input type="file" class="form-control" formControlName="imageFive"
+													(change)="onFileChange(5,$event)" />
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading">Accessories</div>
+									<div class="panel-body">
+										<div class="form-group">
+											<div class="col-xs-3">
+												<div class="checkbox checkbox-inline">
+													<input type="checkbox" id="airConditioner" name="airConditioner"
+														formControlName="airConditioner" [ngModel]="false" />
+													<label for="airConditioner">
+														Air Conditioner *
+													</label>
+												</div>
+											</div>
+											<div class="col-xs-3">
+												<div class="checkbox checkbox-inline">
+													<input type="checkbox" name="powerDoorLocks" id="powerDoorLocks" class="form-check-input"
+														formControlName="powerDoorLocks" [ngModel]="false" />
+													<label for="powerDoorLocks">Power Door Locks *</label>
+												</div>
+											</div>
+											<div class="col-xs-3">
+												<div class="checkbox checkbox-inline">
+													<input type="checkbox" name="antiLockBrakingSystem" id="antiLockBrakingSystem"
+														class="form-check-input" formControlName="antiLockBrakingSystem" [ngModel]="false" />
+													<label for="antiLockBrakingSystem">AntiLock Braking System *</label>
+												</div>
+											</div>
+											<div class="col-xs-3">
+												<div class="checkbox checkbox-inline">
+													<input type="checkbox" name="brakeAssist" id="brakeAssist" class="form-check-input"
+														formControlName="brakeAssist" [ngModel]="false" />
+													<label for="brakeAssist">Brake Assist *</label>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-xs-3">
+												<div class="checkbox checkbox-inline">
+													<input type="checkbox" name="powerSteering" id="powerSteering" class="form-check-input"
+														formControlName="powerSteering" [ngModel]="false" />
+													<label for="powerSteering">Power Steering *</label>
+												</div>
+											</div>
+											<div class="col-xs-3">
+												<div class="checkbox checkbox-inline">
+													<input type="checkbox" name="driverAirbag" id="driverAirbag" class="form-check-input"
+														formControlName="driverAirbag" [ngModel]="false" />
+													<label for="driverAirbag">Driver Airbag *</label>
+												</div>
+											</div>
+											<div class="col-xs-3">
+												<div class="checkbox checkbox-inline">
+													<input type="checkbox" id="passengerAirbag" name="passengerAirbag" class="form-check-input"
+														formControlName="passengerAirbag" [ngModel]="false" />
+													<label for="passengerAirbag">Passenger Airbag *</label>
+												</div>
+											</div>
+											<div class="col-xs-3">
+												<div class="checkbox checkbox-inline">
+													<input type="checkbox" name="powerWindows" id="powerWindows" class="form-check-input"
+														formControlName="powerWindows" [ngModel]="false" />
+													<label for="powerWindows">Power Windows *</label>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-xs-3">
+												<div class="checkbox checkbox-inline">
+													<input type="checkbox" name="cdPlayer" id="cdPlayer" class="form-check-input"
+														formControlName="cdPlayer" [ngModel]="false" />
+													<label for="cdPlayer">CD Player *</label>
+												</div>
+											</div>
+											<div class="col-xs-3">
+												<div class="checkbox checkbox-inline">
+													<input type="checkbox" name="centralLocking" id="centralLocking" class="form-check-input"
+														formControlName="centralLocking" [ngModel]="false" />
+													<label for="centralLocking">Central Locking *</label>
+												</div>
+											</div>
+											<div class="col-xs-3">
+												<div class="checkbox checkbox-inline">
+													<input type="checkbox" name="crashSensor" id="crashSensor" class="form-check-input"
+														formControlName="crashSensor" [ngModel]="false" />
+													<label for="crashSensor">Crash Sensor *</label>
+												</div>
+											</div>
+											<div class="col-xs-3">
+												<div class="checkbox checkbox-inline">
+													<input type="checkbox" id="leatherSeats" class="form-check-input"
+														formControlName="leatherSeats" [ngModel]="false" />
+													<label for="">Leather Seats *</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<div class="form-group">
+											<div class="col-xs-3 col-offset-3" style="text-align: center">
+												<button class="btn btn-primary form-control">
+													SUBMIT
+												</button>
+											</div>
+											<div class="col-xs-3">
+												<button type="button" class="btn btn-default form-control">
+													RESET
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

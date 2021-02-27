@@ -1,0 +1,38 @@
+<app-top-nav></app-top-nav>
+<div class="ts-main-content">
+	<app-side-nav></app-side-nav>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="page-title">Update Image 1</h2>
+					<div class="row">
+						<div class="col-md-12">
+							<form [formGroup]="udtImgOneFrm" (ngSubmit)="submit()">
+								<div class="panel panel-default">
+									<div class="panel-heading">Basic Info</div>
+									<div class="panel-body">
+										<div class="form-group">
+											<div class="col-xs-12">
+												<label>Current Image1</label>
+												<img width="300" height="200"
+													src="http://localhost/VehicalDisplaySystem/assets/images/{{imageSrc}}" /><br /><br />
+												<label>Upload New Image 1</label>
+												<input type="file" formControlName="image1" name="image1" (change)="onFileChange(1,$event)">
+											</div>
+											<div class="col-xs-4" style="margin-top: 20px;">
+												<button class="btn btn-primary form-control">
+													Update
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

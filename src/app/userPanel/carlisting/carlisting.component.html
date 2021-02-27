@@ -1,0 +1,77 @@
+<app-header></app-header>
+<div></div>
+<section class="listing-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 col-md-push-3">
+        <div class="result-sorting-wrapper">
+          <div class="sorting-count">
+            <p *ngIf="(allCars) != ''">
+              <strong><span>{{ carCount }} Listings</span></strong>
+            </p>
+            <p *ngIf="(allCars) == ''">
+              <strong><span>OOPS! No match found.</span></strong>
+            </p>
+          </div>
+        </div>
+        <div class="filter_data">
+          <div class="product-listing-m gray-bg" *ngFor="let car of allCars">
+            <div class="product-listing-img">
+              <img src="http://localhost/VehicalDisplaySystem/assets/images/{{ car.Vimage1 }}" class="img-responsive"
+                alt="Image" />
+            </div>
+            <div class="product-listing-content">
+              <h5>
+                <a href="#" [routerLink]="['/user/vehDetails', car.id]">{{ car.BrandName }} ,
+                  {{ car.VehiclesTitle }}</a>
+              </h5>
+              <p class="list-price">RS {{ car.PricePerDay }}</p>
+              <ul>
+                <li>
+                  <i class="fa fa-user" aria-hidden="true"></i>{{ car.SeatingCapacity }} seats
+                </li>
+                <li>
+                  <i class="fa fa-calendar" aria-hidden="true"></i>{{ car.ModelYear }} model
+                </li>
+                <li>
+                  <i class="fa fa-car" aria-hidden="true"></i>{{ car.typeName }}
+                </li>
+              </ul>
+              <a href="#" [routerLink]="['/user/vehDetails', car.id]" class="btn btn-sm">View Details
+              </a>&nbsp;&nbsp;
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="col-md-3 col-md-pull-9">
+        <div class="sidebar_widget">
+          <div class="sidebar_filter">
+            <form action="search-carresult.php" method="post">
+              <div class="form-group">
+                <h6>
+                  <i class="fa fa-filter" style="color: red; margin-right: 10px" aria-hidden="true"></i>Brands
+                </h6>
+                <label *ngFor="let item of allBrands">&nbsp;&nbsp;
+                  <input type="checkbox" name="{{ item.BrandName }}" id="" value="{{ item.BrandName }}"
+                    [(ngModel)]="item.isChecked" (change)="fetchCheckedBrandNames()" />&nbsp;&nbsp;{{ item.BrandName }}
+                </label>
+              </div>
+              <div class="form-group">
+                <h6>
+                  <i class="fa fa-filter" style="color: red; margin-right: 10px" aria-hidden="true"></i>Fueal Type
+                </h6>
+                <label *ngFor="let type of allFuealType">&nbsp;&nbsp;
+                  <input name="{{ type.typeName }}" type="checkbox" class="inp inp-chk brand"
+                    value="{{ type.typeName }}" [(ngModel)]="type.isChecked"
+                    (change)="fetchCheckedFuealTypes()" />&nbsp;&nbsp;{{ type.typeName }}
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

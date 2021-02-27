@@ -1,0 +1,81 @@
+<app-top-nav></app-top-nav>
+<div class="ts-main-content">
+	<app-side-nav></app-side-nav>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="page-title">Registered Users</h2>
+					<div class="panel panel-default">
+						<div class="panel-heading">Reg Users</div>
+						<div class="panel-body">
+							<div id="zctb_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+								<div class="row">
+									<div class="col-sm-12">
+										<table class="display table table-striped table-bordered table-hover dataTable"
+											cellspacing="0" width="100%" role="grid" aria-describedby="zctb_info"
+											style="width: 100%;">
+											<thead>
+												<tr role="row">
+													<th class="sorting_asc" tabindex="0" aria-controls="zctb"
+														rowspan="1" colspan="1" aria-sort="ascending"
+														aria-label="#: activate to sort column descending"
+														style="width: 13px;">#</th>
+													<th class="sorting" tabindex="0" aria-controls="zctb" rowspan="1"
+														colspan="1"
+														aria-label=" Name: activate to sort column ascending"
+														style="width: 72px;"> Name</th>
+													<th class="sorting" tabindex="0" aria-controls="zctb" rowspan="1"
+														colspan="1"
+														aria-label="Email : activate to sort column ascending"
+														style="width: 171px;">Email </th>
+													<th class="sorting" tabindex="0" aria-controls="zctb" rowspan="1"
+														colspan="1"
+														aria-label="Contact no: activate to sort column ascending"
+														style="width: 79px;">Contact no
+													</th>
+													<th class="sorting" tabindex="0" aria-controls="zctb" rowspan="1"
+														colspan="1"
+														aria-label="Reg Date: activate to sort column ascending"
+														style="width: 123px;">Reg Date</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr role="row" *ngFor="let usr of allUsers;let i = index">
+													<td class="sorting_1">{{i+1}}</td>
+													<td>{{usr.FullName}}</td>
+													<td>{{usr.EmailId}}</td>
+													<td>{{usr.ContactNo}}</td>
+													<td>{{usr.RegDate}}</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<!-- <div class="row">
+									<div class="col-sm-5">
+										<div class="dataTables_info" id="zctb_info" role="status" aria-live="polite">
+											Showing 1 to 4 of 4 entries</div>
+									</div>
+									<div class="col-sm-7">
+										<div class="dataTables_paginate paging_simple_numbers" id="zctb_paginate">
+											<ul class="pagination">
+												<li class="paginate_button previous disabled" id="zctb_previous"><a
+														href="#" aria-controls="zctb" data-dt-idx="0"
+														tabindex="0">Previous</a></li>
+												<li class="paginate_button active"><a href="#" aria-controls="zctb"
+														data-dt-idx="1" tabindex="0">1</a></li>
+												<li class="paginate_button next disabled" id="zctb_next"><a href="#"
+														aria-controls="zctb" data-dt-idx="2" tabindex="0">Next</a></li>
+											</ul>
+										</div>
+									</div>
+								</div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,17 @@
+@keyframes example {
+  0% {
+    transform: translateY(-20%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.animatedfadeIn {
+  animation-name: example;
+  animation-duration: .5s;
+}
+.button-notification {
+  padding: 20px 20px;
+  font-size: 20px;
+  color: #ffffff;
+}

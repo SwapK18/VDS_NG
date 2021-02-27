@@ -1,0 +1,93 @@
+<app-top-nav></app-top-nav>
+<div class="ts-main-content">
+	<app-side-nav></app-side-nav>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+
+			<div class="row">
+				<div class="col-md-12">
+
+					<h2 class="page-title">Change Password</h2>
+
+					<div class="row">
+						<div class="col-md-10">
+							<div class="panel panel-default">
+								<div class="panel-heading">Form fields</div>
+								<div class="panel-body">
+									<form name="form" [formGroup]="changePasswordForm" (ngSubmit)="onSubmit()">
+
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label">Current Password</label>
+											<div class="col-sm-8">
+												<input formControlName="currentPassword" type="password" class="form-control" name="password"
+													id="password" required="" />
+												<div *ngIf="submitted && f.currentPassword.errors" class="alert-danger">
+													<div *ngIf="f.currentPassword.errors.required">Current Password is
+														required</div>
+														<div *ngIf="f.currentPassword.errors.minlength">Current Password must be at least 2
+															characters</div>
+												</div>
+											</div>
+										</div>
+										<div class="hr-dashed"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label">New Password</label>
+											<div class="col-sm-8">
+												<input formControlName="newPassword" type="password" class="form-control" name="newpassword"
+													id="newpassword" required="" />
+												<div *ngIf="submitted && f.newPassword.errors" class="alert-danger">
+													<div *ngIf="f.newPassword.errors.required">New Password is
+														required</div>
+													<div *ngIf="f.newPassword.errors.minlength">New Password must be at least 2
+														characters</div>
+
+												</div>
+											</div>
+										</div>
+										<div class="hr-dashed"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label">Confirm Password</label>
+											<div class="col-sm-8">
+												<input formControlName="confirmPassword" type="password" class="form-control"
+													name="confirmpassword" id="confirmpassword" required="" />
+												<div *ngIf="submitted && f.confirmPassword.errors" class="alert-danger">
+													<div *ngIf="f.confirmPassword.errors.required">Confirm Password is
+														required</div>
+														<div *ngIf="f.confirmPassword.errors.minlength">Confirm Password must be at least 6
+															characters</div>
+															<div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+												</div>
+											</div>
+										</div>
+										<div class="hr-dashed"></div>
+
+
+
+										<div class="form-group">
+											<div class="col-sm-8 col-sm-offset-4">
+
+												<button class="btn btn-primary" name="submit" type="submit">Save
+													changes</button>
+											</div>
+										</div>
+
+									</form>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+
+
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>

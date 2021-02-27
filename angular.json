@@ -1,0 +1,225 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "VDS": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/VDS",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": ["src/favicon.ico", "src/assets"],
+            "extractCss": true,
+            "styles": [
+              {
+                "input": "./src/assets/css/bootstrap.min.css",
+                "bundleName": "bootstrapmin",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/css/style.css",
+                "bundleName": "style",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/css/owl.carousel.css",
+                "bundleName": "owlcarousel",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/css/owl.transitions.css",
+                "bundleName": "owltransitions",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/css/slick.css",
+                "bundleName": "slick",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/css/bootstrap-slider.min.css",
+                "bundleName": "bootstrapslider",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/css/font-awesome.min.css",
+                "bundleName": "fontawesome",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/switcher/css/switcher.css",
+                "bundleName": "switcher",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/switcher/css/red.css",
+                "bundleName": "red",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/switcher/css/orange.css",
+                "bundleName": "orange",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/switcher/css/blue.css",
+                "bundleName": "blue",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/switcher/css/pink.css",
+                "bundleName": "pink",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/switcher/css/green.css",
+                "bundleName": "green",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/switcher/css/purple.css",
+                "bundleName": "purple",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/css/dataTables.bootstrap.min.css",
+                "bundleName": "datatablesbootstrapmin",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/css/bootstrap-social.css",
+                "bundleName": "bootstrapsocial",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/css/bootstrap-select.css",
+                "bundleName": "bootstrapselect",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/css/fileinput.min.css",
+                "bundleName": "fileinputmin",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/css/awesome-bootstrap-checkbox.css",
+                "bundleName": "awesomebootstrapcheckbox",
+                "inject": false
+              },
+              {
+                "input": "./src/assets/css/admin_style.css",
+                "bundleName": "adminstyle",
+                "inject": false
+              },
+              "./src/styles.css",
+              "./node_modules/sweetalert2/src/sweetalert2.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "VDS:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "VDS:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "VDS:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "VDS:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "VDS:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "VDS",
+  "cli": {
+    "analytics": "bee3b8ea-9fe6-4f2a-9c23-313ccab41270"
+  }
+}

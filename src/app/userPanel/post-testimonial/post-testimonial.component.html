@@ -1,0 +1,42 @@
+<app-header></app-header>
+<section class="user_profile inner_pages">
+  <div class="container">
+    <div class="user_profile_info gray-bg padding_4x4_40">
+      <div class="upload_user_logo"> <img src="http://localhost/VehicalDisplaySystem/assets/images/dealer-logo.jpg" alt="image">
+      </div>
+
+      <div class="dealer_info">
+        <h5>Swapnil Kadu</h5>
+        <p><br>
+          &nbsp;</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 col-sm-3">
+        <app-profile-nav></app-profile-nav>
+      </div>
+      <div class="col-md-6 col-sm-8">
+        <div class="profile_wrap">
+          <h5 class="uppercase underline">Post a Testimonial</h5>
+          <form name="form" [formGroup]="postTestimonialForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label class="control-label">Testimonail</label>
+              <textarea placeholder="Testimonial" class="form-control white_bg" formControlName="testimonial" rows="4"
+                required=""></textarea>
+              <div *ngIf="submitted && f.testimonial.errors" class="alert-danger">
+                <div *ngIf="f.testimonial.errors.required">Fill this please.</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" name="submit" class="btn">Save <span class="angle_arrow"><i
+                    class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

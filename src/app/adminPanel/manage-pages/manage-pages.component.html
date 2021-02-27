@@ -1,0 +1,56 @@
+<app-top-nav></app-top-nav>
+<div class="ts-main-content">
+	<app-side-nav></app-side-nav>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="page-title">Manage Pages </h2>
+					<div class="row">
+						<div class="col-md-10">
+							<div class="panel panel-default">
+								<div class="panel-heading">Form fields</div>
+								<div class="panel-body">
+									<form>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">Select Page</label>
+											<div class="col-sm-8">
+												<select name="project" [(ngModel)]="sltdPageId"
+													(change)="selPageId($event)">
+													<option selected="selected" value="">---- Select Page ----</option>
+													<option *ngFor="let opt of allPages" [value]="opt.id">
+														{{opt.PageName}}</option>
+												</select>
+											</div>
+										</div>
+										<div class="hr-dashed"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label">Selected Page</label>
+											<div class="col-sm-8">
+												{{pageName}} </div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">Page Details </label>
+											<div class="col-sm-8">
+												<textarea class="form-control" rows="5" cols="50" name="pgedetails"
+													id="pgedetails" placeholder="Package Details"
+													required="">{{pageContent}}</textarea>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-sm-8 col-sm-offset-4">
+												<button type="submit" name="submit" value="Update" id="submit"
+													class="btn-primary btn">Update</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

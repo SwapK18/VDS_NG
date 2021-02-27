@@ -1,0 +1,57 @@
+<app-top-nav></app-top-nav>
+<div class="ts-main-content">
+  <app-side-nav></app-side-nav>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="page-title">Manage Bookings</h2>
+          <div class="panel panel-default">
+            <div class="panel-heading">Bookings Info</div>
+            <div class="panel-body">
+              <div id="zctb_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <table class="display table table-striped table-bordered table-hover dataTable" cellspacing="0"
+                      width="100%" role="grid" aria-describedby="zctb_info" style="width: 100%;">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Name</th>
+                          <th>Vehicle</th>
+                          <th>From Date</th>
+                          <th>To Date</th>
+                          <th>Message</th>
+                          <th>Status</th>
+                          <th>Posting date</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody role="row">
+                        <tr class="odd" *ngFor="let booked of allBookings; let i = index">
+                          <td>{{i+1}}</td>
+                          <td>{{booked.FullName}}</td>
+                          <td>{{booked.BrandName}},{{booked.VehiclesTitle}}</td>
+                          <td>{{booked.FromDate}}</td>
+                          <td>{{booked.ToDate}}</td>
+                          <td>{{booked.message}}</td>
+                          <td *ngIf="booked.Status == 1">Confirmed</td>
+                          <td *ngIf="booked.Status == 2">Canceled</td>
+                          <td *ngIf="booked.Status == 0">Pending</td>
+                          <td>{{booked.PostingDate}}</td>
+                          <td><a (click)="bookingAction('confirm',booked.id)">Confirm</a>
+                            <hr style="border-color: #bbb;" />
+                            <a (click)="bookingAction('cancel',booked.id)">Cancel</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

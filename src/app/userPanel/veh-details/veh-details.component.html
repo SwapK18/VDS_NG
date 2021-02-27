@@ -1,0 +1,240 @@
+<app-header></app-header>
+<div *ngFor="let detail of vehDetails">
+  <section id="listing_img_slider" style="opacity: 1; display: block;" class="owl-carousel owl-theme">
+    <div class="owl-wrapper-outer">
+      <div class="owl-wrapper"
+        style="width: 3480px; left: 0px; display: block; transition: all 800ms ease 0s; transform: translate3d(-435px, 0px, 0px);">
+        <div class="owl-item" style="width: 435px;">
+          <div><img src="http://localhost/VehicalDisplaySystem/assets/images/{{detail.Vimage1}}" class="img-responsive"
+              alt="image" width="900" height="560"></div>
+        </div>
+        <div class="owl-item" style="width: 435px;">
+          <div><img src="http://localhost/VehicalDisplaySystem/assets/images/{{detail.Vimage2}}" class="img-responsive"
+              alt="image" width="900" height="560"></div>
+        </div>
+        <div class="owl-item" style="width: 435px;">
+          <div><img src="http://localhost/VehicalDisplaySystem/assets/images/{{detail.Vimage3}}" class="img-responsive"
+              alt="image" width="900" height="560"></div>
+        </div>
+        <div class="owl-item" style="width: 435px;">
+          <div><img src="http://localhost/VehicalDisplaySystem/assets/images/{{detail.Vimage4}}" class="img-responsive"
+              alt="image" width="900" height="560"></div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="owl-controls clickable">
+      <div class="owl-buttons">
+        <div class="owl-prev">prev</div>
+        <div class="owl-next">next</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="listing-detail">
+    <div class="container">
+      <div class="listing_detail_head row">
+        <div class="col-md-9">
+          <h2>{{detail.BrandName}} , {{detail.VehiclesTitle}}</h2>
+        </div>
+        <div class="col-md-3">
+          <div class="price_info">
+            <p>RS. {{detail.PricePerDay}} </p>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9">
+          <div class="main_features">
+            <ul>
+
+              <li> <i class="fa fa-calendar" aria-hidden="true"></i>
+                <h5>{{detail.ModelYear}}</h5>
+                <p>Model Year</p>
+              </li>
+              <li> <i class="fa fa-cogs" aria-hidden="true"></i>
+                <h5>{{detail.typeName}}</h5>
+                <p>Fuel Type</p>
+              </li>
+
+              <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
+                <h5>{{detail.SeatingCapacity}}</h5>
+                <p>Seats</p>
+              </li>
+            </ul>
+          </div>
+          <div class="listing_more_info">
+            <div class="listing_detail_wrap">
+              <ul class="nav nav-tabs gray-bg" role="tablist">
+                <li role="presentation" class="active"><a href="#vehicle-overview " aria-controls="vehicle-overview"
+                    role="tab" data-toggle="tab">Vehicle Overview </a></li>
+
+                <li role="presentation"><a href="#accessories" aria-controls="accessories" role="tab"
+                    data-toggle="tab">Accessories</a></li>
+              </ul>
+
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="vehicle-overview">
+
+                  <p>{{detail.VehiclesOverview}}</p>
+                </div>
+
+
+                <div role="tabpanel" class="tab-pane" id="accessories">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th colspan="2">Accessories</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Air Conditioner</td>
+                        <td *ngIf="detail.AirConditioner"><i class="fa fa-check" aria-hidden="true"></i></td>
+                        <td *ngIf="!detail.AirConditioner"><i class="fa fa-close" aria-hidden="true"></i></td>
+
+                      </tr>
+
+                      <tr>
+                        <td>AntiLock Braking System</td>
+                        <td *ngIf="detail.AntiLockBrakingSystem"><i class="fa fa-check" aria-hidden="true"></i></td>
+                        <td *ngIf="!detail.AntiLockBrakingSystem"><i class="fa fa-close" aria-hidden="true"></i></td>
+
+                      </tr>
+
+                      <tr>
+                        <td>Power Steering</td>
+                        <td *ngIf="detail.PowerSteering"><i class="fa fa-check" aria-hidden="true"></i></td>
+                        <td *ngIf="!detail.PowerSteering"><i class="fa fa-close" aria-hidden="true"></i></td>
+
+                      </tr>
+
+
+                      <tr>
+
+                        <td>Power Windows</td>
+
+                        <td *ngIf="detail.PowerWindows"><i class="fa fa-check" aria-hidden="true"></i></td>
+                        <td *ngIf="!detail.PowerWindows"><i class="fa fa-close" aria-hidden="true"></i></td>
+
+                      </tr>
+
+                      <tr>
+                        <td>CD Player</td>
+                        <td *ngIf="detail.CDPlayer"><i class="fa fa-check" aria-hidden="true"></i></td>
+                        <td *ngIf="!detail.CDPlayer"><i class="fa fa-close" aria-hidden="true"></i></td>
+
+                      </tr>
+
+                      <tr>
+                        <td>Leather Seats</td>
+                        <td *ngIf="detail.LeatherSeats"><i class="fa fa-check" aria-hidden="true"></i></td>
+                        <td *ngIf="!detail.LeatherSeats"><i class="fa fa-close" aria-hidden="true"></i></td>
+
+                      </tr>
+
+                      <tr>
+                        <td>Central Locking</td>
+                        <td *ngIf="detail.CentralLocking"><i class="fa fa-check" aria-hidden="true"></i></td>
+                        <td *ngIf="!detail.CentralLocking"><i class="fa fa-close" aria-hidden="true"></i></td>
+
+                      </tr>
+
+                      <tr>
+                        <td>Power Door Locks</td>
+                        <td *ngIf="detail.PowerDoorLocks"><i class="fa fa-check" aria-hidden="true"></i></td>
+                        <td *ngIf="!detail.PowerDoorLocks"><i class="fa fa-close" aria-hidden="true"></i></td>
+
+                      </tr>
+                      <tr>
+                        <td>Brake Assist</td>
+                        <td *ngIf="detail.BrakeAssist"><i class="fa fa-check" aria-hidden="true"></i></td>
+                        <td *ngIf="!detail.BrakeAssist"><i class="fa fa-close" aria-hidden="true"></i></td>
+                      </tr>
+
+                      <tr>
+                        <td>Driver Airbag</td>
+                        <td *ngIf="detail.DriverAirbag"><i class="fa fa-check" aria-hidden="true"></i></td>
+                        <td *ngIf="!detail.DriverAirbag"><i class="fa fa-close" aria-hidden="true"></i></td>
+
+                      </tr>
+
+                      <tr>
+                        <td>Passenger Airbag</td>
+                        <td *ngIf="detail.PassengerAirbag"><i class="fa fa-check" aria-hidden="true"></i></td>
+                        <td *ngIf="!detail.PassengerAirbag"><i class="fa fa-close" aria-hidden="true"></i></td>
+                      </tr>
+
+                      <tr>
+                        <td>Crash Sensor</td>
+                        <td><i class="fa fa-close" aria-hidden="true"></i></td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <aside class="col-md-3">
+
+          <div class="share_vehicle">
+            <p>Share: <a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a> <a href="#"><i
+                  class="fa fa-twitter-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-linkedin-square"
+                  aria-hidden="true"></i></a> <a href="#"><i class="fa fa-google-plus-square"
+                  aria-hidden="true"></i></a> </p>
+          </div>
+          <div class="sidebar_widget">
+            <div class="widget_heading">
+              <h5><i class="fa fa-envelope" aria-hidden="true"></i>Book Now</h5>
+            </div>
+            <form class="login-container" [formGroup]="bookVehical" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <input type="text" class="form-control" name="fromdate" placeholder="From Date(dd/mm/yyyy)" required="" formControlName="fromdate" />
+                <div *ngIf="isSubmitted && f.fromdate.errors" class="alert-danger">
+                  <div *ngIf="f.fromdate.errors.required">From Date is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="todate" placeholder="To Date(dd/mm/yyyy)"  formControlName="todate">
+                <div *ngIf="isSubmitted && f.todate.errors" class="alert-danger">
+                  <div *ngIf="f.todate.errors.required">To Date is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea rows="4" class="form-control" name="message" placeholder="Message" formControlName="message"></textarea>
+                <div *ngIf="isSubmitted && f.message.errors" class="alert-danger">
+                  <div *ngIf="f.message.errors.required">Message is required</div>
+                </div>
+              </div>
+              <!-- <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">Login For
+                Book</a> -->
+                <button class="btn btn-md">Book Now</button>
+
+            </form>
+          </div>
+        </aside>
+
+      </div>
+
+      <div class="space-20"></div>
+      <div class="divider"></div>
+
+      <div class="similar_cars">
+        <h3>Similar Cars</h3>
+        <div class="row">
+
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+<app-footer></app-footer>

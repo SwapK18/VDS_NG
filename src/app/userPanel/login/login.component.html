@@ -1,0 +1,52 @@
+<div class="modal fade" id="loginform">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Sign In</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="login_wrap">
+            <div class="col-md-12 col-sm-6">
+              <div class="animatedfadeIn alert alert-danger" id="errorMsg" *ngIf="isLoginFailed">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;&nbsp;
+                {{ errorMessage }}
+              </div>
+              <div class="animatedfadeIn alert alert-success" *ngIf="isLoggedIn">
+                Login successful!<br />{{ successMessage }}
+              </div>
+              <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
+                <div class="form-group">
+                  <input formControlName="email" type="email" class="form-control" name="email"
+                    placeholder="Email address*">
+                  <div *ngIf="isSubmitted && formControls.email.errors" class="alert-danger">
+                    <div *ngIf="formControls.email.errors.required">Email is required</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Password *" formControlName="password">
+                  <div *ngIf="isSubmitted && formControls.password.errors" class="alert-danger">
+                    <div *ngIf="formControls.password.errors.required">Password is required</div>
+                  </div>
+                </div>
+                <div class="form-group checkbox">
+                  <input type="checkbox" id="remember">
+
+                </div>
+                <div class="form-group">
+                  <input type="submit" name="login" value="Login" class="btn btn-block">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer text-center">
+        <p>Don't have an account? <a href="#signupform" data-toggle="modal" data-dismiss="modal">Signup Here</a></p>
+        <p><a href="#forgotpassword" data-toggle="modal" data-dismiss="modal">Forgot Password ?</a></p>
+      </div>
+    </div>
+  </div>
+</div>

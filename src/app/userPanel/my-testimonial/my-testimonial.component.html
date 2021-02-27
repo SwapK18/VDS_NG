@@ -1,0 +1,46 @@
+<app-header></app-header>
+<section class="user_profile inner_pages">
+  <div class="container">
+    <div class="user_profile_info gray-bg padding_4x4_40">
+      <div class="upload_user_logo"> <img src="http://localhost/VehicalDisplaySystem/assets/images/dealer-logo.jpg"
+          alt="image">
+      </div>
+
+      <div class="dealer_info">
+        <h5>Swapnil Kadu</h5>
+        <p><br>
+          &nbsp;</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 col-sm-3">
+        <app-profile-nav></app-profile-nav>
+      </div>
+      <div class="col-md-8 col-sm-8">
+
+
+        <div class="profile_wrap">
+          <h5 class="uppercase underline">My Testimonials </h5>
+          <div class="my_vehicles_list">
+            <ul class="vehicle_listing">
+              <li *ngFor="let tst of allTesti">
+
+                <div>
+                  <p>{{tst.Testimonial}}</p>
+                  <p><b>Posting Date:</b>{{tst.PostingDate}}</p>
+                </div>
+                <div class="vehicle_status">
+                  <a *ngIf="tst.status == 0" class="btn outline btn-xs">Waiting for approval</a>
+                  <a *ngIf="tst.status == 1" class="btn outline btn-xs active-btn">Active</a>
+                  <div class="clearfix"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

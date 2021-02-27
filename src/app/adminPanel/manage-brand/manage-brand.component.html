@@ -1,0 +1,55 @@
+<app-top-nav></app-top-nav>
+<div class="ts-main-content">
+	<app-side-nav></app-side-nav>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="page-title">Manage Brands</h2>
+					<div class="panel panel-default">
+						<div class="panel-heading">Listed Brands</div>
+						<div class="panel-body">
+							<div id="zctb_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+								<div class="row">
+									<div class="col-sm-12">
+										<table class="display table table-striped table-bordered table-hover dataTable" cellspacing="0"
+											width="100%" role="grid" aria-describedby="zctb_info" style="width: 100%;">
+											<thead>
+												<tr role="row">
+													<th class="sorting_asc" tabindex="0" aria-controls="zctb" rowspan="1" colspan="1"
+														aria-sort="ascending" aria-label="#: activate to sort column descending"
+														style="width: 53px;">#</th>
+													<th class="sorting" tabindex="0" aria-controls="zctb" rowspan="1" colspan="1"
+														aria-label="Brand Name: activate to sort column ascending" style="width: 185px;">Brand Name
+													</th>
+													<th class="sorting" tabindex="0" aria-controls="zctb" rowspan="1" colspan="1"
+														aria-label="Creation Date: activate to sort column ascending" style="width: 241px;">Creation
+														Date</th>
+													<th class="sorting" tabindex="0" aria-controls="zctb" rowspan="1" colspan="1"
+														aria-label="Updation date: activate to sort column ascending" style="width: 205px;">Updation
+														date</th>
+													<th class="sorting" tabindex="0" aria-controls="zctb" rowspan="1" colspan="1"
+														aria-label="Action: activate to sort column ascending" style="width: 115px;">Action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr *ngFor="let item of allBrands; let i = index" role="row">
+													<td class="sorting_1">{{i+1}}</td>
+													<td>{{ item.BrandName }}</td>
+													<td>{{item.CreationDate}}</td>
+													<td>{{item.UpdationDate}}</td>
+													<td><a (click)="editBrands(item.id)"><i class="fa fa-edit"></i></a> |
+														<a (click)="deleteElement(item.id)"><i class="fa fa-close"></i></a></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
